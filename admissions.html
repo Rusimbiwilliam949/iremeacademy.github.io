@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admissions – Ireme Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#1b5e35;
+  --green-mid:#2e8b50;
+  --green-pale:#eaf6ee;
+  --off:#f7f8f5;
+  --mid:#445549;
+  --gold:#e8a020;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
+  --radius:18px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--off);
+  color:#162117;
+  line-height:1.6;
+}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 6%;
+  border-bottom:1px solid #e6eee9;
+  z-index:999;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--mid);
+  font-size:13px;
+  margin:0 10px;
+}
+
+nav a:hover{color:var(--green)}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,var(--green-pale),#fff);
+  padding:90px 6%;
+  text-align:center;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  color:var(--green);
+}
+
+.hero p{
+  max-width:650px;
+  margin:15px auto;
+  color:var(--mid);
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:50px;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn-green{
+  background:var(--green);
+  color:#fff;
+}
+
+.btn-green:hover{
+  background:var(--green-mid);
+  transform:scale(1.05);
+}
+
+.btn-wa{
+  background:#25d366;
+  color:#fff;
+}
+
+/* SECTION */
+.section{
+  padding:80px 6%;
+  max-width:1200px;
+  margin:auto;
+}
+
+.title{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  color:var(--green);
+  margin-bottom:10px;
+}
+
+.subtitle{
+  color:var(--mid);
+  max-width:700px;
+  margin-bottom:40px;
+}
+
+/* GRID */
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+/* STEPS */
+.step{
+  display:flex;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.num{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-family:'Playfair Display',serif;
+}
+
+.step h4{
+  color:var(--green);
+  margin-bottom:5px;
+}
+
+/* FORM */
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border:1px solid #cdded3;
+  border-radius:10px;
+  font-family:inherit;
+  outline:none;
+}
+
+input:focus,textarea:focus,select:focus{
+  border-color:var(--green-mid);
+}
+
+label{
+  font-size:12px;
+  font-weight:600;
+  color:var(--mid);
+  text-transform:uppercase;
+}
+
+.form-group{margin-bottom:14px}
+
+textarea{min-height:90px}
+
+/* FLOAT BUTTONS */
+.float-wa{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:var(--shadow);
+}
+
+.float-apply{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:var(--green);
+  color:#fff;
+  padding:12px 16px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:700;
+  box-shadow:var(--shadow);
+}
+
+/* FOOTER */
+footer{
+  background:#0d2e18;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+  margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div><strong>Ireme Academy</strong></div>
+    <!-- LINKS -->
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Admissions Open</h1>
+  <p>
+    Join Ireme Academy — a safe, caring, and high-quality learning environment for children aged 1 to 11 years.
+    We are now accepting applications for the new academic intake.
+  </p>
+
+  <a href="#apply" class="btn btn-green">Apply Online</a>
+  <a href="https://wa.me/250788281186" class="btn btn-wa">WhatsApp Us</a>
+</section>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="title">Admission Process</div>
+  <p class="subtitle">Simple steps to enroll your child at Ireme Academy.</p>
+
+  <div class="grid-2">
+
+    <div class="card">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h4>Submit Application</h4>
+          <p>Fill in the online application form or contact us via WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h4>School Visit</h4>
+          <p>Visit our school for a friendly tour and consultation.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h4>Assessment</h4>
+          <p>Child assessment based on age and learning level.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">4</div>
+        <div>
+          <h4>Admission Confirmation</h4>
+          <p>Receive admission letter and complete registration.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--green);font-family:'Playfair Display'">Required Documents</h3>
+      <br>
+      <ul>
+        <li>Birth certificate copy</li>
+        <li>Parent/Guardian ID</li>
+        <li>Passport photo of child</li>
+        <li>Previous school report (if available)</li>
+      </ul>
+
+      <br>
+      <p style="color:var(--mid);font-size:13px">
+        📌 Early application is recommended due to limited space.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section" id="apply">
+  <div class="title">Online Application Form</div>
+  <p class="subtitle">Fill this form and our admissions team will contact you within 24–48 hours.</p>
+
+  <div class="card">
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Child First Name</label>
+        <input type="text" placeholder="First name">
+      </div>
+
+      <div class="form-group">
+        <label>Child Last Name</label>
+        <input type="text" placeholder="Last name">
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" name="date_of_birth" id="">
+      </div>
+
+      <div class="form-group">
+        <label>Class Applying For</label>
+        <select>
+          <option>Select class</option>
+          <option value="daycare">Daycare</option>
+          <option value="baby class">Baby Class</option>
+          <option value="middle class">Middle Class</option>
+          <option value="top class">Top Class</option>
+          <option value="P1">Primary 1</option>
+          <option value="P2">Primary 2</option>
+          <option value="P3">Primary 3</option>
+          <option value="P4">Primary 4</option>
+          <option value="P5">Primary 5</option>
+          <option value="P6">Primary 6</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Parent / Guardian Name</label>
+      <input type="text" name="applicant_fullname" placeholder="Full name">
+    </div>
+
+    <div class="grid-2">
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone_number" placeholder="+250...">
+      </div>
+
+      <div class="form-group">
+        <label>Email (optional)</label>
+        <input type="email" name="applicant_email" placeholder="email@example.com">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Any special request or question..." name="applicant_message"></textarea>
+    </div>
+
+    <button class="btn btn-green" style="width:100%" name="submit">Submit Application</button>
+
+  </div>
+</section>
+
+<!-- FLOAT -->
+<a href="https://wa.me/250788281186" class="float-wa">💬</a>
+<a href="#apply" class="float-apply">Apply Now</a>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Ireme Academy · Admissions Department
+</footer>
+
+</body>
+</html>

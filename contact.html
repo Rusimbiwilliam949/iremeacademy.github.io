@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Ireme Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#1b5e35;
+  --green-mid:#2e8b50;
+  --green-pale:#eaf6ee;
+  --mid:#445549;
+  --off:#f7f8f5;
+  --white:#fff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--off);
+  overflow-x:hidden;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+  color:var(--green);
+}
+
+/* NAV */
+nav{
+  background:#fff;
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #e0ebe3;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:var(--mid);
+  font-size:13px;
+}
+nav a:hover{color:var(--green)}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:90px 5% 50px;
+  background:linear-gradient(135deg,var(--green-pale),#fff);
+  animation:fadeDown 1s ease;
+}
+
+.hero h1{font-size:46px}
+.hero p{color:var(--mid);max-width:600px;margin:auto}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  max-width:1100px;
+  margin:auto;
+  padding:60px 5%;
+}
+
+/* INFO CARDS */
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  border:1px solid #ddeee3;
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.icon{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.label{
+  font-size:11px;
+  color:var(--green-mid);
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* CONTACT FORM */
+form{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  border:1px solid #ddeee3;
+  transition:0.4s;
+}
+
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  margin-bottom:15px;
+  border-radius:10px;
+  border:1px solid #cfe3d7;
+  font-family:inherit;
+  outline:none;
+}
+
+input:focus,textarea:focus{
+  border-color:var(--green-mid);
+}
+
+button{
+  width:100%;
+  padding:14px;
+  background:var(--green);
+  color:#fff;
+  border:none;
+  border-radius:50px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:var(--green-mid);
+  transform:scale(1.03);
+}
+
+/* WHATSAPP FLOAT */
+.wa{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  text-decoration:none;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+  animation:pulse 2s infinite;
+}
+
+/* MAP */
+.map{
+  max-width:1100px;
+  margin:40px auto;
+  padding:0 5%;
+}
+
+.map-box{
+  height:300px;
+  background:#dff0fb;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:40px;
+  transition:0.4s;
+}
+
+.map-box:hover{
+  transform:scale(1.02);
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+  100%{transform:scale(1)}
+}
+
+/* MOBILE */
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr}
+  .hero h1{font-size:34px}
+}
+
+:root{
+  --green:#1b5e35;
+  --green-mid:#2e8b50;
+  --green-pale:#eaf6ee;
+  --gold:#e8a020;
+  --off:#f7f8f5;
+  --mid:#445549;
+  --shadow:0 10px 30px rgba(0,0,0,0.08);
+  --radius:16px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--off);
+  color:#162117;
+  scroll-behavior:smooth;
+}
+
+/* HEADINGS SYSTEM */
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+  color:var(--green);
+}
+
+/* SECTION SYSTEM */
+.section{
+  padding:90px 5%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ANIMATION BASE */
+.fade-up{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* NAVBAR SYSTEM */
+nav{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 5%;
+  border-bottom:1px solid #e6eee9;
+}
+
+nav a{
+  margin:0 12px;
+  text-decoration:none;
+  color:var(--mid);
+  font-size:13px;
+  font-weight:500;
+}
+
+nav a:hover{color:var(--green)}
+
+/* BUTTON SYSTEM */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 22px;
+  border-radius:50px;
+  font-weight:600;
+  transition:0.3s;
+  text-decoration:none;
+}
+
+.btn-green{
+  background:var(--green);
+  color:#fff;
+}
+
+.btn-green:hover{
+  background:var(--green-mid);
+  transform:scale(1.05);
+}
+
+.btn-wa{
+  background:#25d366;
+  color:#fff;
+}
+
+/* CARD SYSTEM */
+.card{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:25px;
+  box-shadow:var(--shadow);
+  transition:0.4s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+/* GRID SYSTEM */
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* HERO SYSTEM */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:110px 5%;
+  background:linear-gradient(135deg,var(--green-pale),#fff);
+}
+
+/* FLOAT BUTTONS */
+.float-wa{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:var(--shadow);
+}
+
+.float-apply{
+  position:fixed;
+  bottom:90px;
+  right:20px;
+  background:var(--green);
+  color:#fff;
+  padding:12px 16px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:700;
+  box-shadow:var(--shadow);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <strong style="color:var(--green)">Ireme Academy</strong>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Contact Us</h1>
+  <p>We are always ready to help parents and guardians. Reach us anytime via phone, WhatsApp, or visit our school.</p>
+</section>
+
+<!-- CONTACT INFO + FORM -->
+<section class="grid">
+
+  <!-- INFO -->
+  <div>
+    <div class="card">
+      <div class="icon">📍</div>
+      <div class="label">Address</div>
+      <p>Kinyinya Sector, Gasabo District<br>Kigali City, Rwanda</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📞</div>
+      <div class="label">Phone</div>
+      <p>+250 788 281 186<br>+250 789 749 962<br>+250 731 000 197</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">✉️</div>
+      <div class="label">Email</div>
+      <p>iremeacademy@gmail.com</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💬</div>
+      <div class="label">WhatsApp</div>
+      <p>Fast response via WhatsApp chat</p>
+      <a href="https://wa.me/250788281186" style="display:inline-block;margin-top:10px;background:#25d366;color:#fff;padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:600">
+        Chat Now
+      </a>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div>
+    <form>
+      <h2>Send a Message</h2>
+
+      <label>Name</label>
+      <input type="text" placeholder="Your name">
+
+      <label>Phone</label>
+      <input type="tel" placeholder="+250 7XX XXX XXX">
+
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com">
+
+      <label>Message</label>
+      <textarea rows="5" placeholder="Write your message..."></textarea>
+
+      <button type="button" onclick="sendMsg(this)">Send Message</button>
+    </form>
+  </div>
+
+</section>
+
+<!-- MAP -->
+<section class="map">
+  <h2 style="text-align:center;color:var(--green)">Find Us</h2>
+  <div class="map-box">
+    🗺️ Google Map Location
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa" href="https://wa.me/250788281186">💬</a>
+
+<script>
+// scroll animation
+const cards=document.querySelectorAll('.card');
+
+window.addEventListener('scroll',()=>{
+  cards.forEach(c=>{
+    const top=c.getBoundingClientRect().top;
+    if(top<window.innerHeight-80){
+      c.classList.add('show');
+    }
+  });
+});
+
+// form effect
+function sendMsg(btn){
+  btn.innerText="Message Sent ✓";
+  btn.style.background="#2e8b50";
+  btn.disabled=true;
+}
+
+const items=document.querySelectorAll('.fade-up');
+
+window.addEventListener('scroll',()=>{
+  items.forEach(el=>{
+    const top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight-80){
+      el.classList.add('show');
+    }
+  });
+});
+
+</script>
+
+</body>
+</html>

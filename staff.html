@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff – Ireme Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#1b5e35;
+  --green-mid:#2e8b50;
+  --green-light:#4db870;
+  --green-pale:#eaf6ee;
+  --off:#f7f8f5;
+  --dark:#162117;
+  --mid:#445549;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:#fff;
+  color:var(--dark);
+}
+
+/* NAV (MATCH INDEX) */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:70px;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 5%;
+  border-bottom:1px solid #e6eee8;
+  z-index:1000;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.logo{
+  width:42px;height:42px;
+  border-radius:50%;
+  overflow:hidden;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.brand{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  color:var(--green);
+  font-size:16px;
+}
+
+.sub{
+  font-size:10px;
+  color:var(--mid);
+}
+
+/* HERO */
+.hero{
+  margin-top:70px;
+  padding:90px 5%;
+  text-align:center;
+  background:linear-gradient(135deg,var(--green-pale),#fff);
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  color:var(--green);
+  animation:fadeUp 0.8s ease;
+}
+
+.hero p{
+  max-width:600px;
+  margin:12px auto;
+  color:var(--mid);
+}
+
+/* STAFF SECTION */
+.staff-section{
+  padding:80px 5%;
+}
+
+.head-card{
+  display:flex;
+  gap:30px;
+  background:var(--green);
+  color:#fff;
+  padding:40px;
+  border-radius:20px;
+  align-items:center;
+  margin-bottom:50px;
+  flex-wrap:wrap;
+}
+
+.head-img{
+  width:160px;
+  height:160px;
+  border-radius:20px;
+  overflow:hidden;
+  background:#fff;
+  flex-shrink:0;
+}
+
+/* IMAGE POSITION */
+.head-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.head-info h2{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  margin-bottom:5px;
+}
+
+.head-info p{
+  opacity:0.85;
+  font-size:14px;
+}
+
+/* STAFF GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:var(--off);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #e3eee6;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 35px rgba(0,0,0,0.08);
+}
+
+/* STAFF IMAGE */
+.card-img{
+  height:260px;
+  background:var(--green-pale);
+}
+
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* TEXT */
+.card-body{
+  padding:16px;
+  text-align:center;
+}
+
+.name{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  color:var(--green);
+  margin-bottom:4px;
+}
+
+.role{
+  font-size:13px;
+  color:var(--mid);
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:900px){
+  .head-card{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+
+  <a href="index.html" class="nav-left">
+    <div class="logo">
+      <img src="images/logo.PNG" alt="Logo">
+    </div>
+
+    <div>
+      <div class="brand">Ireme Academy</div>
+      <div class="sub">Kinyinya · Kigali</div>
+    </div>
+  </a>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Our Staff</h1>
+  <p>Dedicated, professional, and passionate educators shaping the future of every child.</p>
+</section>
+
+<!-- HEAD TEACHER -->
+<section class="staff-section">
+
+  <div class="head-card">
+
+    <!-- IMAGE POSITION -->
+    <div class="head-img">
+      <img src="images/headteacher.PNG" alt="Head Teacher">
+    </div>
+
+    <div class="head-info">
+      <h2>Ange MUKAMWIZA</h2>
+      <p>Head Teacher – Ireme Academy</p>
+      <p style="margin-top:10px;opacity:0.9">
+        “At Ireme Academy, we believe every child deserves care, attention, and quality education that builds confidence and leadership.”
+      </p>
+    </div>
+  </div>
+
+  <!-- STAFF GRID -->
+  <div class="grid">
+
+    <!-- STAFF 1 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="headteacher.PNG" alt="Teacher">
+      </div>
+      <div class="card-body">
+        <div class="name">Teacher Name</div>
+        <div class="role">Head Teacher</div>
+      </div>
+    </div>
+
+    <!-- STAFF 2 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="staff2.jpg" alt="Teacher">
+      </div>
+      <div class="card-body">
+        <div class="name">Teacher Name</div>
+        <div class="role">Primary Teacher</div>
+      </div>
+    </div>
+
+    <!-- STAFF 3 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="staff3.jpg" alt="Teacher">
+      </div>
+      <div class="card-body">
+        <div class="name">Teacher Name</div>
+        <div class="role">Assistant Teacher</div>
+      </div>
+    </div>
+
+    <!-- STAFF 4 -->
+    <div class="card">
+      <div class="card-img">
+        <img src="staff4.jpg" alt="Teacher">
+      </div>
+      <div class="card-body">
+        <div class="name">Teacher Name</div>
+        <div class="role">Admin Staff</div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>

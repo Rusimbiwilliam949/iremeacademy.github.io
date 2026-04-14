@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academics – Ireme Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#1b5e35;
+  --green-mid:#2e8b50;
+  --green-light:#4db870;
+  --green-pale:#eaf6ee;
+  --off:#f7f8f5;
+  --dark:#162117;
+  --mid:#445549;
+  --r:14px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:#fff;
+  color:var(--dark);
+}
+
+/* NAV (MATCH INDEX STYLE) */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  height:70px;
+  background:rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 5%;
+  border-bottom:1px solid #e6eee8;
+  z-index:1000;
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.logo-box{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--green-pale);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+}
+
+.logo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.brand{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  color:var(--green);
+  font-size:16px;
+}
+
+.sub{
+  font-size:10px;
+  color:var(--mid);
+  margin-top:-2px;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  font-size:13px;
+  color:var(--mid);
+  transition:0.2s;
+}
+
+.nav-links a:hover{
+  color:var(--green);
+}
+
+/* HERO */
+.hero{
+  margin-top:70px;
+  padding:90px 5%;
+  text-align:center;
+  background:linear-gradient(135deg,var(--green-pale),#fff);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  top:-100px;
+  right:-120px;
+  width:300px;
+  height:300px;
+  background:var(--green-pale);
+  border-radius:50%;
+  opacity:0.7;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:44px;
+  color:var(--green);
+  animation:fadeUp 0.8s ease;
+}
+
+.hero p{
+  max-width:600px;
+  margin:15px auto;
+  color:var(--mid);
+}
+
+/* SECTIONS */
+.section{
+  padding:80px 5%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.title h2{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  color:var(--green);
+}
+
+.title p{
+  color:var(--mid);
+  max-width:600px;
+  margin:auto;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border:1px solid #e6eee8;
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+/* IMAGE AREA */
+.img{
+  height:220px;
+  background:linear-gradient(135deg,#cfe9d6,#eaf6ee);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:42px;
+  position:relative;
+}
+
+.img span{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.4);
+  color:#fff;
+  font-size:12px;
+  padding:10px;
+}
+
+/* CONTENT */
+.content{
+  padding:18px;
+}
+
+.content h3{
+  font-family:'Playfair Display',serif;
+  color:var(--green);
+  margin-bottom:8px;
+}
+
+.content p{
+  font-size:13px;
+  color:var(--mid);
+  line-height:1.6;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .hero h1{font-size:30px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+
+  <!-- LEFT BRAND + LOGO -->
+  <a href="index.html" class="nav-left">
+
+    <div class="logo-box">
+      <img src="images/logo.PNG" alt="Ireme Academy Logo">
+    </div>
+
+    <div>
+      <div class="brand">Ireme Academy</div>
+      <div class="sub">Kinyinya · Gasabo · Kigali</div>
+    </div>
+
+  </a>
+
+  <!-- LINKS -->
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Our Academic Programs</h1>
+  <p>We provide high-quality, child-centered education from Early Childhood Development to Primary 6.</p>
+</section>
+
+<!-- ECD -->
+<section class="section">
+  <div class="title">
+    <h2>Early Childhood Development</h2>
+    <p>Learning through play, creativity, and exploration.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="img" style="background-image: url(images/daycare.PNG); background-repeat: no-repeat; background-size: cover;"><span>Daycare Classroom Image</span></div>
+      <div class="content">
+        <h3>Daycare</h3>
+        <p>Safe and caring environment for early learners.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img" style="background-image: url(images/MIDDLE.jpeg); background-repeat: no-repeat; background-size: cover;"> <span>Baby Class Activities</span></div>
+      <div class="content">
+        <h3>Baby Class</h3>
+        <p>Developing early communication and motor skills.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img" style="background-image: url(images/TOP.PNG); background-repeat: no-repeat; background-size: cover;"> <span>Middle Class Learning</span></div>
+      <div class="content">
+        <h3>Middle Class</h3>
+        <p>Building confidence through guided learning activities.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img" style="background-image: url(images/nursery-graduation1.jpeg); background-repeat: no-repeat; background-size: cover;"> <span>Top Class Preparation</span></div>
+      <div class="content">
+        <h3>Top Class</h3>
+        <p>Preparation for smooth transition to primary school.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRIMARY -->
+<section class="section" style="background:#f7f8f5">
+  <div class="title">
+    <h2>Primary Education</h2>
+    <p>Strong academic foundation preparing learners for success.</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="img" style="background-image: url(images/primary1.jpeg);background-repeat: no-repeat; background-size: cover;"> <span>Lower Primary Classroom</span></div>
+      <div class="content">
+        <h3>P1 – P3</h3>
+        <p>Literacy, numeracy, and basic sciences development.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="img" style="background-image: url(images/primary1.jpeg);background-repeat: no-repeat; background-size: cover;"> <span>Upper Primary Learning</span></div>
+      <div class="content">
+        <h3>P4 – P6</h3>
+        <p>Advanced academic preparation and exam readiness.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#1b5e35;color:#fff;text-align:center;padding:25px">
+  <p>© 2025 Ireme Academy · Shaping Leaders of Tomorrow</p>
+</footer>
+
+</body>
+</html>

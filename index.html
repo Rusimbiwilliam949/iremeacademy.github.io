@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ireme Academy – Shaping Leaders of the Next Generation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#1b5e35;--green-mid:#2e8b50;--green-light:#4db870;--green-pale:#eaf6ee;
+  --gold:#e8a020;--gold-light:#fff8ed;--coral:#e05c35;--sky:#dff0fb;
+  --white:#ffffff;--off:#f7f8f5;--dark:#162117;--mid:#445549;--muted:#7a9080;--r:14px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--dark);background:var(--white);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.2}
+a{text-decoration:none}
+
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:999;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid #e0ebe3;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.logo-circle{width:42px;height:42px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:18px;font-weight:700}
+.logo-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--green)}
+.logo-sub{font-size:10px;color:var(--muted);letter-spacing:0.5px;margin-top:-3px}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--mid);transition:color 0.2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{background:var(--green);color:#fff !important;padding:9px 18px;border-radius:50px}
+.nav-cta:hover{background:var(--green-mid) !important}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px}
+
+#home{min-height:100vh;padding:100px 5% 60px;background:var(--off);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-blob{position:absolute;top:-80px;right:-100px;width:560px;height:560px;border-radius:50%;background:var(--green-pale);opacity:0.7;z-index:0}
+.hero-blob2{position:absolute;bottom:-60px;left:-60px;width:300px;height:300px;border-radius:50%;background:#e8f5d8;opacity:0.5;z-index:0}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1200px;margin:0 auto;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--gold-light);border:1px solid #f0d090;border-radius:50px;padding:6px 16px;font-size:12px;font-weight:600;color:#7a4800;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:18px}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.hero-text h1{font-size:clamp(32px,4vw,52px);color:var(--green);margin-bottom:18px;letter-spacing:-1px}
+.hero-text h1 span{color:var(--green-mid);font-style:italic}
+.hero-text p{font-size:16px;color:var(--mid);max-width:440px;margin-bottom:32px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.btn-main{background:var(--green);color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:600;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-main:hover{background:var(--green-mid);transform:translateY(-1px)}
+.btn-wa{background:#25d366;color:#fff;padding:13px 26px;border-radius:50px;font-size:14px;font-weight:600;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-wa:hover{background:#1fba58;transform:translateY(-1px)}
+.btn-main svg,.btn-wa svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+
+.hero-quick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hq-card{background:#fff;border-radius:var(--r);padding:18px 14px;border:1px solid #ddeee3;text-align:center}
+.hq-icon{font-size:26px;margin-bottom:8px}
+.hq-title{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:var(--green);margin-bottom:4px}
+.hq-desc{font-size:11px;color:var(--muted)}
+
+.why-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.why-card{background:#fff;border-radius:var(--r);padding:14px;border:1px solid #ddeee3;display:flex;gap:10px;align-items:flex-start}
+.why-icon{width:34px;height:34px;border-radius:8px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.why-title{font-size:12px;font-weight:600;color:var(--green);margin-bottom:3px}
+.why-desc{font-size:11px;color:var(--muted);line-height:1.6}
+
+section{padding:88px 5%}
+.section-inner{max-width:1200px;margin:0 auto}
+.stag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--green-mid);margin-bottom:10px}
+.stitle{font-size:clamp(26px,3vw,40px);color:var(--green);margin-bottom:14px;letter-spacing:-0.5px}
+.ssub{font-size:15px;color:var(--mid);max-width:540px;margin-bottom:48px;line-height:1.8}
+
+#about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-img-box{background:linear-gradient(135deg,var(--green-pale),#c5e8d0);border-radius:24px;height:400px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden}
+.about-since{position:absolute;bottom:20px;right:20px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 4px 24px rgba(27,94,53,0.12)}
+.about-since strong{font-family:'Playfair Display',serif;font-size:22px;color:var(--green);display:block}
+.about-since span{font-size:12px;color:var(--muted)}
+.about-text p{font-size:15px;color:var(--mid);margin-bottom:14px;line-height:1.85}
+.vmv-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.vmv-card{background:var(--off);border-radius:var(--r);padding:18px}
+.vmv-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-mid);margin-bottom:6px}
+.vmv-card p{font-size:13px;color:var(--mid);line-height:1.7}
+.values-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+.val-pill{background:var(--green-pale);color:var(--green);font-size:12px;font-weight:600;padding:5px 14px;border-radius:50px}
+
+#academics{background:var(--off)}
+.acad-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.acad-section{background:#fff;border-radius:20px;padding:32px;border:1px solid #ddeee3}
+.acad-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid #e6ede9}
+.acad-emoji{font-size:30px;width:54px;height:54px;background:var(--green-pale);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.acad-htitle{font-family:'Playfair Display',serif;font-size:20px;color:var(--green)}
+.acad-hsub{font-size:12px;color:var(--muted)}
+.class-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.class-item{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-radius:10px;background:var(--off);border-left:3px solid var(--green-light)}
+.class-name{font-size:14px;font-weight:600;color:var(--green)}
+.class-age{font-size:11px;color:var(--muted);background:#fff;border:1px solid #ddeee3;padding:3px 10px;border-radius:50px}
+
+#admissions{background:#fff}
+.adm-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.steps{list-style:none;display:flex;flex-direction:column}
+.step{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid #e6ede9}
+.step:last-child{border-bottom:none}
+.step-n{width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-title{font-size:15px;font-weight:600;color:var(--green);margin-bottom:4px}
+.step-desc{font-size:13px;color:var(--mid);line-height:1.7}
+.docs-box{background:var(--gold-light);border:1px solid #f0d090;border-radius:var(--r);padding:20px;margin-top:24px}
+.docs-box strong{font-size:13px;color:#7a4800;display:block;margin-bottom:10px}
+.docs-box ul{padding-left:18px;font-size:13px;color:#8a5e20;line-height:2.1}
+.adm-form{background:var(--off);border-radius:20px;padding:36px;border:1px solid #ddeee3}
+.adm-form h3{font-size:22px;color:var(--green);margin-bottom:24px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11px;font-weight:700;color:var(--mid);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:1.5px solid #cdddd3;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--dark);background:#fff;transition:border-color 0.2s;outline:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--green-mid)}
+.fg textarea{resize:vertical;min-height:80px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-submit{width:100%;padding:14px;background:var(--green);color:#fff;border:none;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:background 0.2s;margin-top:6px}
+.btn-submit:hover{background:var(--green-mid)}
+.form-note{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
+
+#gallery{background:var(--off)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g-item{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative}
+.g-item:nth-child(1){grid-column:1/3;aspect-ratio:16/7;font-size:64px}
+.g-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.45));color:#fff;font-size:12px;font-weight:600;padding:24px 14px 10px}
+.gc1{background:#c5e8d0}.gc2{background:var(--sky)}.gc3{background:#fde8d8}.gc4{background:var(--gold-light)}.gc5{background:#e8d5f5}.gc6{background:#d8eef5}.gc7{background:#f5d8d8}
+
+#staff{background:#fff}
+.head-teacher{display:flex;align-items:center;gap:40px;background:var(--green);border-radius:24px;padding:40px;margin-bottom:32px;color:#fff}
+.ht-avatar{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,0.15);border:3px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:44px;flex-shrink:0}
+.ht-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-light);margin-bottom:8px}
+.ht-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;margin-bottom:6px}
+.ht-pos{font-size:14px;color:rgba(255,255,255,0.7)}
+.ht-quote{font-size:14px;color:rgba(255,255,255,0.8);font-style:italic;margin-top:12px;max-width:440px;line-height:1.7}
+.staff-box{background:var(--off);border-radius:20px;padding:36px;display:flex;align-items:center;gap:40px}
+.staff-big-avatar{width:180px;height:180px;border-radius:20px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:72px;flex-shrink:0}
+.staff-box p{font-size:15px;color:var(--mid);line-height:1.85}
+
+#news{background:var(--off)}
+.news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px}
+.news-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid #ddeee3;transition:transform 0.2s,box-shadow 0.2s}
+.news-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(27,94,53,0.1)}
+.news-img{height:170px;display:flex;align-items:center;justify-content:center;font-size:52px}
+.news-body{padding:20px}
+.news-date{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px}
+.news-title{font-family:'Playfair Display',serif;font-size:16px;color:var(--green);margin-bottom:10px;line-height:1.4}
+.news-desc{font-size:13px;color:var(--mid);line-height:1.7}
+.news-tag{display:inline-block;margin-top:12px;font-size:11px;font-weight:600;padding:4px 12px;border-radius:50px}
+.tag-gold{background:var(--gold-light);color:#7a4800}
+.tag-green{background:var(--green-pale);color:var(--green)}
+.tag-coral{background:#fdf0eb;color:#8a2e10}
+
+#contact{background:var(--green)}
+#contact .stag{color:var(--green-light)}
+#contact .stitle{color:#fff}
+#contact .ssub{color:rgba(255,255,255,0.65)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contact-items{display:flex;flex-direction:column;gap:22px}
+.ci{display:flex;gap:16px;align-items:flex-start}
+.ci-icon{width:46px;height:46px;border-radius:10px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ci-label{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:3px}
+.ci-val{font-size:15px;color:#fff;font-weight:500}
+.ci-val a{color:#fff}
+.contact-form-box{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:36px}
+.contact-form-box h3{font-size:20px;color:#fff;margin-bottom:22px}
+.cf .fg label{color:rgba(255,255,255,0.7)}
+.cf .fg input,.cf .fg textarea{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff}
+.cf .fg input::placeholder,.cf .fg textarea::placeholder{color:rgba(255,255,255,0.4)}
+.cf .fg input:focus,.cf .fg textarea:focus{border-color:rgba(255,255,255,0.5)}
+.btn-send{width:100%;padding:14px;background:#fff;color:var(--green);border:none;border-radius:50px;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background 0.2s;margin-top:6px}
+.btn-send:hover{background:var(--green-pale)}
+
+footer{background:#0d2e18;padding:36px 5% 24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:14px;color:rgba(255,255,255,0.5)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);transition:color 0.2s}
+.footer-links a:hover{color:rgba(255,255,255,0.8)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+
+@media(max-width:900px){
+  .nav-links{display:none;flex-direction:column;position:fixed;top:68px;left:0;right:0;background:#fff;padding:20px 5%;border-bottom:1px solid #e0ebe3;gap:16px}
+  .nav-links.open{display:flex}
+  .hamburger{display:flex}
+  .hero-inner,.about-grid,.acad-grid,.adm-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-quick{grid-template-columns:1fr}
+  .why-cards{grid-template-columns:1fr}
+  .vmv-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .g-item:nth-child(1){grid-column:1/-1}
+  .head-teacher{flex-direction:column;text-align:center}
+  .staff-box{flex-direction:column}
+  .fg-row{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.hero-text>*{animation:fadeUp 0.55s ease both}
+.hero-tag{animation-delay:.05s}.hero-text h1{animation-delay:.15s}.hero-text p{animation-delay:.25s}.hero-btns{animation-delay:.35s}
+
+</style>
+</head>
+<body>
+
+<a class="wa-float" href="https://wa.me/250788281186" target="_blank" title="Chat on WhatsApp">
+    <img src="logo.PNG" alt="WhatsApp Icon" style="width:24px;height:24px;filter:invert(100%) sepia(100%) grayscale(100%) brightness(200%)">
+</a>
+
+<nav>
+  <a href="#home" class="nav-logo">
+    <div><img  style="margin-top: 1cm; height: 2cm; width: 2cm;" src="images/logo.PNG" alt=""></div>
+    <div>
+      <div  class="logo-name">Ireme Academy</div>
+      <div class="logo-sub">Kinyinya, Gasabo · Kigali</div>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="academics.html">Academics</a></li>
+    <li><a href="admissions.html">Admissions</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="staff.html">Staff</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="admissions.html" class="nav-cta">Apply Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HOME -->
+<section id="home" style="background-image: url(./background1.PNG);background-repeat: none;background-size: cover;">
+  <div class="hero-blob"></div><div class="hero-blob2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag"><div class="hero-tag-dot"></div>Now Enrolling – Term 3 · 2025–2026</div>
+      <h1>Shaping Leaders of the <span>Next Generation</span></h1>
+      <p>Welcome to <strong>Ireme Academy</strong> — a caring, inclusive school for children aged 1 to 11 in Kinyinya, Gasabo, Kigali.</p>
+      <div class="hero-btns">
+        <a href="#admissions" class="btn-main">
+          <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>Apply Now
+        </a>
+        <a href="https://wa.me/250788281186" target="_blank" class="btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp Us
+        </a>
+      </div>
+      <div class="hero-quick">
+        <div class="hq-card"><div class="hq-icon">🌱</div><div class="hq-title">ECD</div><div class="hq-desc">Learning through play</div></div>
+        <div class="hq-card"><div class="hq-icon">📚</div><div class="hq-title">Lower Primary</div><div class="hq-desc">Building strong basics</div></div>
+        <div class="hq-card"><div class="hq-icon">🎓</div><div class="hq-title">Upper Primary</div><div class="hq-desc">Preparing for success</div></div>
+      </div>
+    </div>
+    <div>
+      <div style="background:#fff;border-radius:20px;padding:26px;border:1px solid #ddeee3">
+        <p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-mid);margin-bottom:14px">Why Choose Ireme Academy</p>
+        <div class="why-cards">
+          <div class="why-card"><div class="why-icon">🧒</div><div><div class="why-title">Child-Centered Learning</div><div class="why-desc">We focus on each child's unique abilities, helping them discover their talents and build confidence.</div></div></div>
+          <div class="why-card"><div class="why-icon">💚</div><div><div class="why-title">Affordable Quality Education</div><div class="why-desc">High-quality education at a reasonable cost, accessible to all families.</div></div></div>
+          <div class="why-card"><div class="why-icon">🏠</div><div><div class="why-title">Safe & Caring Environment</div><div class="why-desc">A home-like, inclusive setting where every child feels safe, loved, and valued.</div></div></div>
+          <div class="why-card"><div class="why-icon">👩‍🏫</div><div><div class="why-title">Dedicated Educators</div><div class="why-desc">Experienced, passionate teachers committed to nurturing every learner.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="about-img-box" style="background-image: url(images/background1.PNG); background-repeat: no-repeat;">
+          <div class="about-since"><strong>2018</strong><span>Founded April 15th</span></div>
+        </div>
+      </div>
+      <div>
+        <span class="stag">About Us</span>
+        <h2 class="stitle">A School Where Every Child <em>Belongs</em></h2>
+        <div class="about-text">
+          <p>Ireme Academy offers early childhood and primary education for children aged <strong>1 to 11 years</strong> in <strong>Kinyinya Sector, Gasabo District, Kigali City.</strong></p>
+          <p>Since opening on <strong>15th April 2018</strong>, we have been committed to creating a safe, caring, and inclusive environment where children from all backgrounds can learn, grow, and thrive.</p>
+          <p>Through dedicated educators and a supportive, home-like setting, we aim to make education accessible and affordable while nurturing confident learners and future leaders.</p>
+        </div>
+        <div class="vmv-grid">
+          <div class="vmv-card"><div class="vmv-label">🔭 Vision</div><p>Nurturing confident, responsible future leaders.</p></div>
+          <div class="vmv-card"><div class="vmv-label">🎯 Mission</div><p>Providing a safe, caring, and affordable environment where every child learns, grows, and leads.</p></div>
+        </div>
+        <div style="margin-top:18px">
+          <div class="vmv-label" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-mid);margin-bottom:10px">Our Values</div>
+          <div class="values-row">
+            <span class="val-pill">Respect</span><span class="val-pill">Responsibility</span><span class="val-pill">Excellence</span><span class="val-pill">Kindness</span><span class="val-pill">Integrity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMICS -->
+<section id="academics">
+  <div class="section-inner">
+    <span class="stag">Academics</span>
+    <h2 class="stitle">Our Classes</h2>
+    <p class="ssub">From Daycare through Primary 6 — every stage of your child's learning journey, covered with care and expertise.</p>
+    <div class="acad-grid">
+      <div class="acad-section">
+        <div class="acad-head">
+          <div class="acad-emoji">🌱</div>
+          <div><div class="acad-htitle">ECD Section</div><div class="acad-hsub">Early Childhood Development · Ages 1–5</div></div>
+        </div>
+        <ul class="class-list">
+          <li class="class-item"><span class="class-name">Daycare</span><span class="class-age">Age 1 – 2 yrs</span></li>
+          <li class="class-item"><span class="class-name">Baby Class</span><span class="class-age">Age 2 – 3 yrs</span></li>
+          <li class="class-item"><span class="class-name">Middle Class</span><span class="class-age">Age 3 – 4 yrs</span></li>
+          <li class="class-item"><span class="class-name">Top Class</span><span class="class-age">Age 4 – 5 yrs</span></li>
+        </ul>
+        <p style="font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7">Play-based learning in a warm, safe environment that builds language, motor skills, creativity, and social readiness.</p>
+      </div>
+      <div class="acad-section">
+        <div class="acad-head">
+          <div class="acad-emoji" style="background:#fdf0eb">📚</div>
+          <div><div class="acad-htitle">Primary Section</div><div class="acad-hsub">Primary 1 – Primary 6 · Ages 6–12</div></div>
+        </div>
+        <ul class="class-list">
+          <li class="class-item" style="border-left-color:#a0c878"><span class="class-name">Primary 1 (P1)</span><span class="class-age">Age 6 – 7 yrs</span></li>
+          <li class="class-item" style="border-left-color:#7db85a"><span class="class-name">Primary 2 (P2)</span><span class="class-age">Age 7 – 8 yrs</span></li>
+          <li class="class-item" style="border-left-color:#5aa83c"><span class="class-name">Primary 3 (P3)</span><span class="class-age">Age 8 – 9 yrs</span></li>
+          <li class="class-item" style="border-left-color:#3d9825"><span class="class-name">Primary 4 (P4)</span><span class="class-age">Age 9 – 10 yrs</span></li>
+          <li class="class-item" style="border-left-color:#2a8018"><span class="class-name">Primary 5 (P5)</span><span class="class-age">Age 10 – 11 yrs</span></li>
+          <li class="class-item" style="border-left-color:#1b6610"><span class="class-name">Primary 6 (P6)</span><span class="class-age">Age 11 – 12 yrs</span></li>
+        </ul>
+        <p style="font-size:13px;color:var(--muted);margin-top:18px;line-height:1.7">Rigorous academics in English, Kinyarwanda, Mathematics, Science, and Social Studies — preparing learners for secondary school success.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions">
+  <div class="section-inner">
+    <span class="stag">Admissions</span>
+    <h2 class="stitle">Join Our School Family</h2>
+    <p class="ssub">Enrolling your child is simple and straightforward. Follow the steps below or fill in the form and we will respond within 2 business days.</p>
+    <div class="adm-grid">
+      <div>
+        <h3 style="font-size:19px;color:var(--green);margin-bottom:20px">How to Apply</h3>
+        <ol class="steps">
+          <li class="step"><div class="step-n">1</div><div><div class="step-title">Submit an Enquiry</div><div class="step-desc">Fill in the online form, visit our school office, or contact us on WhatsApp at +250 788 281 186.</div></div></li>
+          <li class="step"><div class="step-n">2</div><div><div class="step-title">School Visit & Assessment</div><div class="step-desc">We invite parents and the child for a friendly tour and an informal assessment suited to their age.</div></div></li>
+          <li class="step"><div class="step-n">3</div><div><div class="step-title">Receive an Offer</div><div class="step-desc">If a place is available, we send a formal offer of admission within 5 working days.</div></div></li>
+          <li class="step"><div class="step-n">4</div><div><div class="step-title">Complete Registration</div><div class="step-desc">Submit required documents and pay the registration fee to confirm your child's place.</div></div></li>
+          <li class="step"><div class="step-n">5</div><div><div class="step-title">Welcome to Ireme Academy!</div><div class="step-desc">Your child attends an orientation day to meet their teacher, classmates, and settle into their new school.</div></div></li>
+        </ol>
+        <div class="docs-box">
+          <strong>📎 Documents Required</strong>
+          <ul>
+            <li>Birth certificate (copy)</li>
+            <li>Parent / guardian national ID or passport</li>
+            <li>Parent home and work addresses</li>
+            <li>Passport-size photo of the child</li>
+            <li>Most recent school report (if applicable)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="adm-form">
+        <h3>Online Enquiry Form</h3>
+        <div class="fg-row">
+          <div class="fg"><label>Child's First Name</label><input type="text" placeholder="e.g. Amani"></div>
+          <div class="fg"><label>Child's Surname</label><input type="text" placeholder="e.g. Mukamana"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label>Date of Birth</label>
+            <input type="date" name="date_of_birth" id=""></div>
+          <div class="fg"><label>Class Applying For</label>
+            <select>
+              <option value="">Select class...</option>
+              <option>Daycare (Age 1–2)</option><option>Baby Class (Age 2–3)</option>
+              <option>Middle Class (Age 3–4)</option><option>Top Class (Age 4–5)</option>
+              <option>Primary 1 (P1)</option><option>Primary 2 (P2)</option>
+              <option>Primary 3 (P3)</option><option>Primary 4 (P4)</option>
+              <option>Primary 5 (P5)</option><option>Primary 6 (P6)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><label>Parent / Guardian Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="fg-row">
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+250 7XX XXX XXX"></div>
+          <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+        </div>
+        <div class="fg"><label>Message or Questions (optional)</label><textarea placeholder="Any questions or additional information..."></textarea></div>
+        <button class="btn-submit" onclick="submitForm(this)">Send Enquiry</button>
+        <p class="form-note">We respond within 2 business days · You can also reach us on WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <span class="stag">Gallery</span>
+    <h2 class="stitle">Life at Ireme Academy</h2>
+    <p class="ssub">A glimpse into our classrooms, activities, events, and playground — where learning and joy go hand in hand.</p>
+    <div class="gallery-grid">
+      <div class="g-item gc1" style="background-image: url(images/chinese\ visit.jpeg); background-repeat: no-repeat;  background-size: cover;"><span></span><div class="g-label">Creative Arts & Crafts</div></div>
+      <div class="g-item gc2" style="background-image: url(images/i1.PNG); background-repeat: no-repeat;  background-size: cover;"><span></span><div class="g-label">Reading & Literacy</div></div>
+      <div class="g-item gc3" style="background-image: url(images/sport2.PNG); background-repeat: no-repeat;  background-size: cover;"><span></span><div class="g-label">Sports & Play</div></div>
+      <div class="g-item gc4"><span>🔬</span><div class="g-label">Science & Discovery</div></div>
+      <div class="g-item gc5" style="background-image: url(images/culture.jpeg);background-repeat: no-repeat; background-size: cover;"><span></span><div class="g-label">Music & Culture</div></div>
+      <div class="g-item gc6" style="background-image: url(images/trip1.jpeg); background-repeat: no-repeat;  background-size: cover;"><span></span><div class="g-label">Field Trips</div></div>
+      <div class="g-item gc7" style="background-image: url(images/campus1.jpeg); background-repeat: no-repeat;background-size: cover;"><span></span><div class="g-label">Our Campus</div></div>
+    </div>
+    <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--muted)">
+      📱 Follow us on <strong>Facebook</strong> &amp; <strong>Instagram</strong> · <a href="https://wa.me/250788281186" style="color:var(--green-mid);font-weight:600">WhatsApp us</a> to receive your child's activity photos
+    </p>
+  </div>
+</section>
+
+<!-- STAFF -->
+<section id="staff">
+  <div class="section-inner">
+    <span class="stag">Our Staff</span>
+    <h2 class="stitle">Meet Our Team</h2>
+    <p class="ssub">Our educators are passionate, experienced, and dedicated to creating the best learning experience for every child at Ireme Academy.</p>
+    <div class="head-teacher">
+      <div class="ht-avatar"><img class="ht-avatar" src="images/headteacher.PNG" alt=""></div>
+      <div>
+        <div class="ht-tag">Head Teacher</div>
+        <div class="ht-name">Ange MUKAMWIZA</div>
+        <div class="ht-pos">Head Teacher · Ireme Academy</div>
+        <div class="ht-quote">"At Ireme Academy, every child matters. We are committed to building a safe, loving, and inspiring place where each learner can reach their full potential."</div>
+      </div>
+    </div>
+    <div class="staff-box">
+      <div class="staff-big-avatar"><img class="staff-big-avatar" src="images/staff2.jpeg" alt=""></div>
+      <div>
+        <span class="stag">Our Dedicated Team</span>
+        <h3 style="font-size:22px;color:var(--green);margin-bottom:12px">Caring Educators, Every Day</h3>
+        <p>Our full team of qualified teachers, teaching assistants, and support staff work together to ensure every child at Ireme Academy receives the attention, encouragement, and quality education they deserve.</p>
+        <p style="margin-top:12px">From Daycare through Primary 6, each class is led by a dedicated educator who knows every child by name, understands their learning style, and celebrates every milestone together with families.</p>
+        <a href="https://wa.me/250788281186" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--green);color:#fff;padding:11px 22px;border-radius:50px;font-size:14px;font-weight:600">
+          📩 Contact the School
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="section-inner">
+    <span class="stag">News & Events</span>
+    <h2 class="stitle">What's Happening at Ireme Academy</h2>
+    <p class="ssub">Stay up to date with our school events, celebrations, trips, and learner achievements.</p>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-img gc1" style="background-image: url(images/xmass.jpeg); background-repeat: no-repeat; background-size: cover;"></div>
+        <div class="news-body">
+          <div class="news-date">December 2024</div>
+          <div class="news-title">Merry Christmas & Happy New Year 2025</div>
+          <div class="news-desc">Wishing all our learners, parents, and staff a joyful Christmas and a prosperous New Year. May this season bring happiness, love, and success to your families.</div>
+          <span class="news-tag tag-gold">Celebration</span>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img gc2" style="background-image: url(images/trip2.jpeg); background-repeat: no-repeat; background-size: cover;"></div>
+        <div class="news-body">
+          <div class="news-date">2024 – 2025</div>
+          <div class="news-title">Educational Field Trip</div>
+          <div class="news-desc">Our learners enjoyed an exciting trip where they explored Rwanda's natural beauty and gained valuable knowledge beyond the classroom. Learning through experience makes education more meaningful and fun.</div>
+          <span class="news-tag tag-green">Learning</span>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img gc3" style="background-image: url(images/sport2.PNG); background-repeat: no-repeat; background-size: cover;"></div>
+        <div class="news-body">
+          <div class="news-date">2024 – 2025</div>
+          <div class="news-title">Sports Day & Physical Activities</div>
+          <div class="news-desc">Our learners actively participate in sports that promote teamwork, discipline, and a healthy lifestyle. Through play and competition, children build confidence and develop important life skills.</div>
+          <span class="news-tag tag-coral">Sports</span>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-img gc4" style="background-image: url(images/nursery-graduation1.jpeg); background-repeat: no-repeat; background-size: cover;"></div>
+        <div class="news-body">
+          <div class="news-date">2024 – 2025</div>
+          <div class="news-title">End of Academic Year 2024–2025</div>
+          <div class="news-desc">We proudly celebrated the successful completion of the 2024–2025 academic year — a joyful moment filled with achievements and growth. We thank our students, parents, and staff for their dedication throughout the year.</div>
+          <span class="news-tag tag-gold">Celebration</span>
+        </div>
+      </div>
+      <div class="news-card" style="border:2px solid var(--green-light)">
+        <div class="news-img" style="background:var(--green-pale)">🔔</div>
+        <div class="news-body">
+          <div class="news-date" style="color:var(--green-mid)">April 20, 2026 · Upcoming</div>
+          <div class="news-title">Opening of Term 3 – Academic Year 2025–2026</div>
+          <div class="news-desc">We are excited to welcome our learners back for Term 3! We look forward to a productive and successful learning period filled with growth and achievement for all our students.</div>
+          <span class="news-tag tag-green">Upcoming</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <span class="stag">Contact Us</span>
+    <h2 class="stitle">Get in Touch</h2>
+    <p class="ssub">We are always happy to hear from parents and families. Call us, WhatsApp us, or fill in the form below.</p>
+    <div class="contact-grid">
+      <div class="contact-items">
+        <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Address</div><div class="ci-val">Kinyinya Sector, Gasabo District<br>Kigali City, Rwanda</div></div></div>
+        <div class="ci"><div class="ci-icon">📞</div><div><div class="ci-label">Phone Numbers</div><div class="ci-val"><a href="tel:+250788281186">+250 788 281 186</a><br><a href="tel:+250789749962">+250 789 749 962</a><br><a href="tel:+250731000197">+250 731 000 197</a></div></div></div>
+        <div class="ci"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:iremeacademy@gmail.com">iremeacademy@gmail.com</a></div></div></div>
+        <div class="ci"><div class="ci-icon">💬</div><div><div class="ci-label">WhatsApp</div><div class="ci-val"><a href="https://wa.me/250788281186" target="_blank">+250 788 281 186</a><br><span style="font-size:12px;color:rgba(255,255,255,0.45)">Tap to chat directly</span></div></div></div>
+        <div class="ci"><div class="ci-icon">🕐</div><div><div class="ci-label">Office Hours</div><div class="ci-val">Mon – Fri: 7:00am – 5:00pm<br>Saturday: 8:00am – 12:00pm</div></div></div>
+        <a href="https://wa.me/250788281186" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 24px;border-radius:50px;font-size:15px;font-weight:700;transition:background 0.2s;width:fit-content">
+          <svg style="width:20px;height:20px;fill:#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat with Us on WhatsApp
+        </a>
+      </div>
+      <div class="contact-form-box cf">
+        <h3>Send Us a Message</h3>
+        <div class="fg"><label>Your Full Name</label><input type="text" placeholder="Your name"></div>
+        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+250 7XX XXX XXX"></div>
+        <div class="fg"><label>Email (optional)</label><input type="email" placeholder="your@email.com"></div>
+        <div class="fg"><label>Your Message</label><textarea placeholder="How can we help you?" style="min-height:100px"></textarea></div>
+        <button class="btn-send" onclick="submitContact(this)">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Ireme Academy · Kinyinya, Gasabo, Kigali · © 2025</div>
+    <div class="footer-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#academics">Academics</a>
+      <a href="#admissions">Admissions</a><a href="#gallery">Gallery</a>
+      <a href="#staff">Staff</a><a href="#news">News</a><a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">Nurturing Minds · Building Futures · Shaping Leaders</div>
+  </div>
+</footer>
+
+<script>
+const ham=document.getElementById('hamburger'),nav=document.getElementById('navLinks');
+ham.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+function submitForm(btn){btn.textContent='✓ Enquiry Sent! We\'ll contact you soon.';btn.style.background='#2e8b50';btn.disabled=true}
+function submitContact(btn){btn.textContent='✓ Message Sent! Thank you.';btn.style.background='#2e8b50';btn.style.color='#fff';btn.disabled=true}
+</script>
+</body>
+</html>

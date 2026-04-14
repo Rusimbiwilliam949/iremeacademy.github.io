@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Ireme Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --green:#1b5e35;
+  --green-mid:#2e8b50;
+  --green-pale:#eaf6ee;
+  --mid:#445549;
+  --off:#f7f8f5;
+}
+
+body{
+  margin:0;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--off);
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  background:#fff;
+  padding:14px 5%;
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #e0ebe3;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  padding:100px 5%;
+  align-items:center;
+  background:linear-gradient(135deg,var(--green-pale),#fff);
+  animation: fadeDown 1s ease;
+}
+
+/* FLOATING BACKGROUND SHAPE */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:rgba(46,139,80,0.1);
+  border-radius:50%;
+  top:-100px;
+  right:-120px;
+  animation: float 6s ease-in-out infinite;
+  z-index:0;
+}
+
+.hero h1{
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  color:var(--mid);
+  line-height:1.7;
+}
+
+/* IMAGE BOX */
+.img-box{
+  height:360px;
+  border-radius:18px;
+  background:#c5e8d0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+  position:relative;
+  transition:transform 0.5s ease;
+  overflow:hidden;
+  animation: zoomIn 1s ease;
+}
+
+.img-box:hover{
+  transform:scale(1.05) rotate(-1deg);
+}
+
+.badge{
+  position:absolute;
+  bottom:15px;
+  right:15px;
+  background:#fff;
+  padding:10px 14px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:600;
+  color:var(--green);
+  animation: pulse 2s infinite;
+}
+
+/* SECTIONS */
+.section{
+  padding:90px 5%;
+  max-width:1100px;
+  margin:auto;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.stag{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  color:var(--green-mid);
+  text-transform:uppercase;
+}
+
+.stitle{
+  font-size:36px;
+  margin:10px 0 20px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:14px;
+  border:1px solid #ddeee3;
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* IMAGE SMALL */
+.small-img{
+  height:260px;
+  background:#dff0fb;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:50px;
+  transition:transform 0.5s ease;
+}
+
+.small-img:hover{
+  transform:scale(1.05);
+}
+
+/* VALUES */
+.values{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.value{
+  background:var(--green-pale);
+  color:var(--green);
+  padding:6px 14px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.value:hover{
+  background:var(--green);
+  color:#fff;
+  transform:scale(1.05);
+}
+
+/* CTA */
+.cta{
+  background:var(--green);
+  color:#fff;
+  padding:60px;
+  border-radius:16px;
+  text-align:center;
+  animation: fadeUp 1s ease;
+}
+
+.cta h2{color:#fff}
+
+.cta a{
+  display:inline-block;
+  margin-top:15px;
+  background:#25d366;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:50px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.cta a:hover{
+  transform:scale(1.1);
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+  from{opacity:0; transform:translateY(-30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes zoomIn{
+  from{transform:scale(0.8); opacity:0;}
+  to{transform:scale(1); opacity:1;}
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(30px);}
+  100%{transform:translateY(0);}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+  100%{transform:scale(1);}
+}
+
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--mid);transition:color 0.2s; text-decoration: none;}
+.nav-links a:hover{color:var(--green)}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <strong style="color:var(--green)">Ireme Academy</strong>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html">Contact</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="staff.html">Staff</a>
+    <a href="news.html">News</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>About Ireme Academy</h1>
+    <p>
+      A modern, caring, and child-centered school in Kigali focused on building
+      strong academic foundations and future leaders.
+    </p>
+  </div>
+
+  <div class="img-box" style="background-image: url(images/background1.PNG); background-repeat: no-repeat; background-size: cover;">
+    <div class="badge">Since 2018</div>
+  </div>
+</section>
+
+<!-- WHO WE ARE -->
+<section class="section">
+  <span class="stag">Who We Are</span>
+  <h2 class="stitle">A Safe Place for Growth</h2>
+
+  <div class="grid">
+    <div class="card">
+      <p>Ireme Academy is an early childhood and primary school in Kigali for children aged 1–11 years.</p>
+      <p>We focus on academic excellence, discipline, creativity, and character building.</p>
+    </div>
+
+    <div class="small-img" style="background-image: url(images/future1.jpeg); background-repeat: no-repeat; background-size: cover;"></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section">
+  <span class="stag">Our Story</span>
+  <h2 class="stitle">Built with Passion</h2>
+
+  <div class="grid">
+    <div class="small-img" style="background-image: url(images/nursery-graduation1.jpeg); background-repeat: no-repeat; background-size: cover;"></div>
+
+    <div class="card">
+      <p>Since 2018, we have grown into a trusted school known for quality education and care.</p>
+      <p>We prepare children not just for exams — but for life success.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section class="section">
+  <span class="stag">Identity</span>
+  <h2 class="stitle">Vision & Mission</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>🌟 Vision</h3>
+      <p>Nurturing confident future leaders.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Mission</h3>
+      <p>Providing safe, affordable, quality education for all children.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section">
+  <span class="stag">Values</span>
+  <h2 class="stitle">What We Believe</h2>
+
+  <div class="card">
+    <div class="values">
+      <span class="value">Respect</span>
+      <span class="value">Responsibility</span>
+      <span class="value">Excellence</span>
+      <span class="value">Kindness</span>
+      <span class="value">Integrity</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="cta">
+    <h2>Enroll Your Child Today</h2>
+    <p>Join Ireme Academy and become part of our learning family.</p>
+    <a href="https://wa.me/250788281186">Apply Now</a>
+  </div>
+</section>
+
+<script>
+// Scroll animation
+const sections=document.querySelectorAll('.section');
+
+window.addEventListener('scroll',()=>{
+  sections.forEach(sec=>{
+    const top=sec.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      sec.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
