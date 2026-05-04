@@ -21,7 +21,7 @@ a{text-decoration:none}
 .wa-float:hover{transform:scale(1.1)}
 .wa-float svg{width:28px;height:28px;fill:#fff}
 
-nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid #e0ebe3;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e0ebe3;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px}
 .nav-logo{display:flex;align-items:center;gap:10px}
 .logo-circle{width:42px;height:42px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Playfair Display',serif;font-size:18px;font-weight:700}
 .logo-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--green)}
@@ -201,9 +201,9 @@ footer{background:#0d2e18;padding:36px 5% 24px}
 </head>
 <body>
 
-<a class="wa-float" href="https://wa.me/250788281186" target="_blank" title="Chat on WhatsApp">
+  <a class="wa-float" href="https://wa.me/250788281186" target="_blank" rel="noopener" title="Chat on WhatsApp">
     <img src="logo.PNG" alt="WhatsApp Icon" style="width:24px;height:24px;filter:invert(100%) sepia(100%) grayscale(100%) brightness(200%)">
-</a>
+  </a>
 
 <nav>
   <a href="#home" class="nav-logo">
@@ -239,7 +239,7 @@ footer{background:#0d2e18;padding:36px 5% 24px}
         <a href="#admissions" class="btn-main">
           <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 100 10A5 5 0 0012 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>Apply Now
         </a>
-        <a href="https://wa.me/250788281186" target="_blank" class="btn-wa">
+        <a href="https://wa.me/250788281186" target="_blank" rel="noopener" class="btn-wa">
           <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp Us
         </a>
       </div>
@@ -363,31 +363,40 @@ footer{background:#0d2e18;padding:36px 5% 24px}
       </div>
       <div class="adm-form">
         <h3>Online Enquiry Form</h3>
+        <form action="https://formspree.io/f/xwvykrpd" method="POST">
+          <input type="hidden" name="_subject" value="New admission enquiry from Ireme Academy website">
+          <input type="hidden" name="_language" value="en">
         <div class="fg-row">
-          <div class="fg"><label>Child's First Name</label><input type="text" placeholder="e.g. Amani"></div>
-          <div class="fg"><label>Child's Surname</label><input type="text" placeholder="e.g. Mukamana"></div>
+          <div class="fg"><label>Child's First Name</label><input type="text" name="child_first_name" placeholder="e.g. Amani" required></div>
+          <div class="fg"><label>Child's Surname</label><input type="text" name="child_surname" placeholder="e.g. Mukamana" required></div>
         </div>
         <div class="fg-row">
           <div class="fg"><label>Date of Birth</label>
-            <input type="date" name="date_of_birth" id=""></div>
+            <input type="date" name="date_of_birth" title="Select the child's date of birth" required></div>
           <div class="fg"><label>Class Applying For</label>
-            <select>
+            <select name="class_applying" title="Select the class you are applying for" required>
               <option value="">Select class...</option>
-              <option>Daycare (Age 1–2)</option><option>Baby Class (Age 2–3)</option>
-              <option>Middle Class (Age 3–4)</option><option>Top Class (Age 4–5)</option>
-              <option>Primary 1 (P1)</option><option>Primary 2 (P2)</option>
-              <option>Primary 3 (P3)</option><option>Primary 4 (P4)</option>
-              <option>Primary 5 (P5)</option><option>Primary 6 (P6)</option>
+              <option>Daycare (Age 1–2)</option>
+              <option>Baby Class (Age 2–3)</option>
+              <option>Middle Class (Age 3–4)</option>
+              <option>Top Class (Age 4–5)</option>
+              <option>Primary 1 (P1)</option>
+              <option>Primary 2 (P2)</option>
+              <option>Primary 3 (P3)</option>
+              <option>Primary 4 (P4)</option>
+              <option>Primary 5 (P5)</option>
+              <option>Primary 6 (P6)</option>
             </select>
           </div>
         </div>
-        <div class="fg"><label>Parent / Guardian Full Name</label><input type="text" placeholder="Your full name"></div>
+        <div class="fg"><label>Parent / Guardian Full Name</label><input type="text" name="parent_name" placeholder="Your full name" required></div>
         <div class="fg-row">
-          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+250 7XX XXX XXX"></div>
-          <div class="fg"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+          <div class="fg"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+250 7XX XXX XXX" required></div>
+          <div class="fg"><label>Email Address</label><input type="email" name="_replyto" placeholder="your@email.com" required></div>
         </div>
-        <div class="fg"><label>Message or Questions (optional)</label><textarea placeholder="Any questions or additional information..."></textarea></div>
-        <button class="btn-submit" onclick="submitForm(this)">Send Enquiry</button>
+        <div class="fg"><label>Message or Questions (optional)</label><textarea name="message" placeholder="Any questions or additional information..."></textarea></div>
+        <button type="submit" class="btn-submit">Send Enquiry</button>
+        </form>
         <p class="form-note">We respond within 2 business days · You can also reach us on WhatsApp</p>
       </div>
     </div>
@@ -395,6 +404,9 @@ footer{background:#0d2e18;padding:36px 5% 24px}
 </section>
 
 <!-- GALLERY -->
+
+
+
 <section id="gallery">
   <div class="section-inner">
     <span class="stag">Gallery</span>
@@ -437,7 +449,7 @@ footer{background:#0d2e18;padding:36px 5% 24px}
         <h3 style="font-size:22px;color:var(--green);margin-bottom:12px">Caring Educators, Every Day</h3>
         <p>Our full team of qualified teachers, teaching assistants, and support staff work together to ensure every child at Ireme Academy receives the attention, encouragement, and quality education they deserve.</p>
         <p style="margin-top:12px">From Daycare through Primary 6, each class is led by a dedicated educator who knows every child by name, understands their learning style, and celebrates every milestone together with families.</p>
-        <a href="https://wa.me/250788281186" target="_blank" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--green);color:#fff;padding:11px 22px;border-radius:50px;font-size:14px;font-weight:600">
+        <a href="https://wa.me/250788281186" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--green);color:#fff;padding:11px 22px;border-radius:50px;font-size:14px;font-weight:600">
           📩 Contact the School
         </a>
       </div>
@@ -512,20 +524,24 @@ footer{background:#0d2e18;padding:36px 5% 24px}
         <div class="ci"><div class="ci-icon">📍</div><div><div class="ci-label">Address</div><div class="ci-val">Kinyinya Sector, Gasabo District<br>Kigali City, Rwanda</div></div></div>
         <div class="ci"><div class="ci-icon">📞</div><div><div class="ci-label">Phone Numbers</div><div class="ci-val"><a href="tel:+250788281186">+250 788 281 186</a><br><a href="tel:+250789749962">+250 789 749 962</a><br><a href="tel:+250731000197">+250 731 000 197</a></div></div></div>
         <div class="ci"><div class="ci-icon">✉️</div><div><div class="ci-label">Email</div><div class="ci-val"><a href="mailto:iremeacademy@gmail.com">iremeacademy@gmail.com</a></div></div></div>
-        <div class="ci"><div class="ci-icon">💬</div><div><div class="ci-label">WhatsApp</div><div class="ci-val"><a href="https://wa.me/250788281186" target="_blank">+250 788 281 186</a><br><span style="font-size:12px;color:rgba(255,255,255,0.45)">Tap to chat directly</span></div></div></div>
+        <div class="ci"><div class="ci-icon">💬</div><div><div class="ci-label">WhatsApp</div><div class="ci-val"><a href="https://wa.me/250788281186" target="_blank" rel="noopener">+250 788 281 186</a><br><span style="font-size:12px;color:rgba(255,255,255,0.45)">Tap to chat directly</span></div></div></div>
         <div class="ci"><div class="ci-icon">🕐</div><div><div class="ci-label">Office Hours</div><div class="ci-val">Mon – Fri: 7:00am – 5:00pm<br>Saturday: 8:00am – 12:00pm</div></div></div>
-        <a href="https://wa.me/250788281186" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 24px;border-radius:50px;font-size:15px;font-weight:700;transition:background 0.2s;width:fit-content">
+        <a href="https://wa.me/250788281186" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 24px;border-radius:50px;font-size:15px;font-weight:700;transition:background 0.2s;width:fit-content">
           <svg style="width:20px;height:20px;fill:#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Chat with Us on WhatsApp
         </a>
       </div>
       <div class="contact-form-box cf">
         <h3>Send Us a Message</h3>
-        <div class="fg"><label>Your Full Name</label><input type="text" placeholder="Your name"></div>
-        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" placeholder="+250 7XX XXX XXX"></div>
-        <div class="fg"><label>Email (optional)</label><input type="email" placeholder="your@email.com"></div>
-        <div class="fg"><label>Your Message</label><textarea placeholder="How can we help you?" style="min-height:100px"></textarea></div>
-        <button class="btn-send" onclick="submitContact(this)">Send Message</button>
+        <form action="https://formspree.io/f/xrejpjka" method="POST">
+          <input type="hidden" name="_subject" value="New contact message from Ireme Academy website">
+          <input type="hidden" name="_language" value="en">
+        <div class="fg"><label>Your Full Name</label><input type="text" name="full_name" placeholder="Your name" required></div>
+        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+250 7XX XXX XXX" required></div>
+        <div class="fg"><label>Email (optional)</label><input type="email" name="_replyto" placeholder="your@email.com"></div>
+        <div class="fg"><label>Your Message</label><textarea name="message" placeholder="How can we help you?" style="min-height:100px" required></textarea></div>
+        <button type="submit" class="btn-send">Send Message</button>
+        </form>
       </div>
     </div>
   </div>
@@ -547,8 +563,6 @@ footer{background:#0d2e18;padding:36px 5% 24px}
 const ham=document.getElementById('hamburger'),nav=document.getElementById('navLinks');
 ham.addEventListener('click',()=>nav.classList.toggle('open'));
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-function submitForm(btn){btn.textContent='✓ Enquiry Sent! We\'ll contact you soon.';btn.style.background='#2e8b50';btn.disabled=true}
-function submitContact(btn){btn.textContent='✓ Message Sent! Thank you.';btn.style.background='#2e8b50';btn.style.color='#fff';btn.disabled=true}
 </script>
 </body>
 </html>
